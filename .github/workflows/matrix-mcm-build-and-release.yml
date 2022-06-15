@@ -72,7 +72,7 @@ jobs:
       - name: Docker - Set armv7 musl to ${{ env.armv7 }}
         if: matrix.arch_type == 'armv7r-linux-musleabihf'
         run: |
-          docker exec -w /root multiarch sed "s|GCC_CONFIG += --enable-default-pie|GCC_CONFIG += ${{ env.armv7 }} --enable-default-pie|" -i config.mak
+          docker exec -w /root multiarch sed "s|-Wno-error|-Wno-error ${{ env.armv7 }}|" -i config.mak
           docker exec -w /root multiarch cat config.mak
 
       - name: Docker - Copy updated config.mak to build directory
