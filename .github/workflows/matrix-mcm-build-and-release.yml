@@ -33,9 +33,11 @@ jobs:
     name: ${{ matrix.name }} ${{ matrix.arch_type }}
 
     env:
-      armv5: "--with-arch=armv5te --with-tune=arm926ej-s --with-float=soft --with-abi=aapcs-linux"
-      armv6: "--with-arch=armv6zk --with-tune=arm1176jzf-s --with-fpu=vfp --with-float=hard --with-abi=aapcs-linux"
-      armv7: "--with-arch=armv7-a --with-tune=generic-armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-abi=aapcs-linux --with-mode=thumb"
+      armv5: "-march=armv5te -mfloat-abi=soft"
+      armv6: "-march=armv6zk -mfpu=vfp -mfloat-abi=hard"
+      armv7: "-march=armv7-a -mfpu=vfpv3-d16 -mfloat-abi=hard"
+
+      -march=armv7-a -mfpu=vfpv3-d16 -mfloat-abi=hard
       aarch64: "--with-arch=armv8-a --with-abi=lp64"
       prerelease: false
 
