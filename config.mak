@@ -7,7 +7,7 @@ else
 COMMON_CONFIG += CC="gcc ${STAT}" CXX="g++ ${STAT}" FC="gfortran ${STAT}"
 endif
 
-COMMON_CONFIG += CFLAGS="${FLAG}" CXXFLAGS="${FLAG}" FFLAGS="${FLAG}" LDFLAGS="-s ${STAT}"
+COMMON_CONFIG += CFLAGS="${FLAG}" CXXFLAGS="${FLAG} -march=armv7-a -mfpu=vfpv3-d16 -mfloat-abi=hard" FFLAGS="${FLAG}" LDFLAGS="-s ${STAT}"
 
 BINUTILS_CONFIG += --enable-gold=yes
 GCC_CONFIG += --enable-default-pie --enable-static-pie --disable-cet
