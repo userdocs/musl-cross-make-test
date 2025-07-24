@@ -93,7 +93,7 @@ musl-git-%:
 	touch $@.tmp/$(patsubst %.orig,%,$@)
 	mv $@.tmp/$(patsubst %.orig,%,$@) $@
 	rm -rf $@.tmp
-	rm -f $@/gas/doc/.dirstamp
+	case "$@" in binutils-*) rm -f $@/gas/doc/.dirstamp ;; esac
 
 %.orig: $(SOURCES)/%.tar.bz2
 	case "$@" in */*) exit 1 ;; esac
@@ -104,7 +104,7 @@ musl-git-%:
 	touch $@.tmp/$(patsubst %.orig,%,$@)
 	mv $@.tmp/$(patsubst %.orig,%,$@) $@
 	rm -rf $@.tmp
-	rm -f $@/gas/doc/.dirstamp
+	case "$@" in binutils-*) rm -f $@/gas/doc/.dirstamp ;; esac
 
 %.orig: $(SOURCES)/%.tar.xz
 	case "$@" in */*) exit 1 ;; esac
@@ -115,7 +115,7 @@ musl-git-%:
 	touch $@.tmp/$(patsubst %.orig,%,$@)
 	mv $@.tmp/$(patsubst %.orig,%,$@) $@
 	rm -rf $@.tmp
-	rm -f $@/gas/doc/.dirstamp
+	case "$@" in binutils-*) rm -f $@/gas/doc/.dirstamp ;; esac
 
 %: %.orig | $(SOURCES)/config.sub
 	case "$@" in */*) exit 1 ;; esac
