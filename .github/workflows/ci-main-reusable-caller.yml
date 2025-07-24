@@ -56,6 +56,8 @@ jobs:
       - name: bootstrap the matrix
         id: triples
         run: |
+          printf '\n%b\n' "# versions.mak\n\n\`\`\`json\n$(cat versions.mak)\n\`\`\`" >> $GITHUB_STEP_SUMMARY
+
           printf '%s\n' "docker_build_matrix=$(jq -c '{arch_type: [.arch_type[]]}' triples.json)" >> $GITHUB_OUTPUT
           printf '\n%b\n' "# docker_build_matrix\n\n\`\`\`json\n$(jq '{arch_type: [.arch_type[]]}' triples.json)\n\`\`\`" >> $GITHUB_STEP_SUMMARY
 
