@@ -2,6 +2,7 @@ GNU_SITE := $(if $(GNU_MIRROR_URL),$(GNU_MIRROR_URL),https://mirrors.dotsrc.org/
 GCC_SITE = $(GNU_SITE)/gcc
 GCC_SNAP = https://gcc.gnu.org/pub/gcc/snapshots
 BINUTILS_SITE = $(GNU_SITE)/binutils
+BINUTILS_SNAP = https://gcc.gnu.org/pub/binutils/snapshots
 GMP_SITE = $(GNU_SITE)/gmp
 MPC_SITE = $(GNU_SITE)/mpc
 MPFR_SITE = $(GNU_SITE)/mpfr
